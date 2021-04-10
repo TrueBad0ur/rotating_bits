@@ -4,7 +4,13 @@ class Solver:
 		self.bits = bits
 
 	def ror8(self):
-		return str(self.number) + " " + str(self.bits)
+		number = self.number
+		bits = self.bits
+		x = bin(number)[2:]
+		x = "0"*(8%len(str(x)))+str(x)
+		x = x[len(x)-bits:len(x)+1]+x[0:len(x)-bits]
+		x = int(x, 2)
+		return x
 
 	def ror16(self):
 		return str(self.number) + " " + str(self.bits)
@@ -16,9 +22,6 @@ class Solver:
 		return str(self.number) + " " + str(self.bits)
 
 if __name__ == "__main__":
-	test = Solver(10, 2)
+	test = Solver(31, 2)
 	print(test.ror8())
-	print(test.ror16())
-	print(test.ror32())
-	print(test.ror64())
 	
