@@ -1,3 +1,40 @@
+# 
+#		Made by truebad0ur for mostly personal usage
+#
+#		------------------Examples------------------
+#
+#		ror 2 bits:		31 -> 11111 -> 00011111 -> 11000111 -> 199
+#		rol 2 bits:		31 -> 11111 -> 00011111 -> 01111100 -> 124
+#
+#
+#		PS> python.exe main.py
+#		PS> Enter number to rotate: 31
+#		PS> Y wanna ROL[L] or ROR[R]: R
+#		PS> Enter for how many bits rotate your number: 2
+#		PS> Automatic[A] or Manual[M] bits: A
+#		PS> 199
+#		
+#		PS> python.exe main.py
+#		PS> Enter number to rotate: 31
+#		PS> Y wanna ROL[L] or ROR[R]: R
+#		PS> Enter for how many bits rotate your number: 2
+#		PS> Automatic[A] or Manual[M] bits: M
+#		PS> Enter how many bits is your number: 8
+#		PS> 199
+#
+#		PS> Enter number to rotate: 31
+#		PS> Y wanna ROL[L] or ROR[R]: L
+#		PS> Enter for how many bits rotate your number: 2
+#		PS> Automatic[A] or Manual[M] bits: A
+#		PS> 124
+#
+#		PS> Enter number to rotate: 31
+#		PS> Y wanna ROL[L] or ROR[R]: L
+#		PS> Enter for how many bits rotate your number: 2
+#		PS> Automatic[A] or Manual[M] bits: M
+#		PS> Enter how many bits is your number: 8
+#		PS> 124
+
 class Solver:
 	def __init__(self, number, bits_to_rotate):
 		self.number = number
@@ -49,14 +86,15 @@ class Solver:
 if __name__ == "__main__":
 	number = int(input("Enter number to rotate: "))
 	rol_ror = input("Y wanna ROL[L] or ROR[R]: ")
+
+	if rol_ror != "R" and rol_ror != "L":
+		print("Smth went wrong!")
+		exit(0)
+
 	bits_to_rotate = int(input("Enter for how many bits rotate your number: "))
 	test = Solver(number, bits_to_rotate)
 
 	if rol_ror == "L":
 		print(test.rol())
-	elif rol_ror == "R":
+	if rol_ror == "R":
 		print(test.ror())
-	else:
-		print("Smth went wrong!")
-		exit(0)
-	
