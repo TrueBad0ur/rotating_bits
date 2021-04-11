@@ -106,7 +106,7 @@ if __name__ == "__main__":
 
         if namespace.ror == "L":
             print(test.rol())
-        if namespace.ror == "R":
+        elif namespace.ror == "R":
             print(test.ror())
         else:
             print("Smth went wrong!")
